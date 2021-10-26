@@ -17,4 +17,4 @@ https://BryceStockman.github.io/run-buddy/
 
 Made with ❤️ by Bryce Stockman
 
-### ©️2019 Run Buddy, Inc 
+### ©️2019 Run Buddy, Inc
