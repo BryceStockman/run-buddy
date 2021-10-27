@@ -44,6 +44,14 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-image: url('../images/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-position: 80%;
 }
 
 header h1 {
@@ -51,6 +59,7 @@ header h1 {
   font-size: 36px;
   color: #fce138;
   margin: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
@@ -73,6 +82,14 @@ header nav ul li a {
   padding: 10px 15px;
   font-weight: lighter;
   font-size: 1.5vw;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul li a:hover {
+  background: #fce138;
+  color: #024e76;
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 header h1 {
@@ -131,20 +148,23 @@ footer a {
   line-height: 1.2;
 }
 
-.hero-cta h1 {
+.hero-cta h2 {
   font-style: italic;
   font-style: 55px;
   color: #fce138;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Hero Form */
 .hero-form {
   color: #024e76;
-  background-color: #fce138;
+  background-color: rgba(252, 225, 56, 0.8);
   padding: 20px;
   border: solid 3px #024e76;
   width: 40%;
   margin: 3.5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
 }
 
 .hero-form h3 {
@@ -162,6 +182,13 @@ footer a {
   color: #024e76;
   width: 100%;
   margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.form-input:focus {
+  background-color: rgba(255, 255, 255, 1);
+  outline: none;
 }
 
 .hero-form label {
@@ -174,6 +201,11 @@ footer a {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
+  border-radius: 10px;
+}
+
+.hero-form button:hover {
+  background-color: #39a6b2;
 }
 /* HERO STYLES END */
 
@@ -197,11 +229,15 @@ footer a {
   margin: 50px auto;
   padding-bottom: 50px;
   width: 80%;
-  border-bottom: 1px solid #39a6b2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #39a6b2;
+}
+
+.step:last-child {
+  border-bottom: none;
 }
 
 .step h3 {
@@ -303,11 +339,11 @@ footer a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  width: 90%;
 }
 
 .contact-info > * {
   flex: 1;
-  margin: 15px;
 }
 
 .contact-info iframe {
@@ -319,7 +355,6 @@ footer a {
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  margin: 30px 0 0 60px;
 }
 
 .contact-info h3 {
@@ -339,6 +374,10 @@ footer a {
   color: #fce138;
 }
 
+.contact-form {
+  margin-left: 20px;
+}
+
 .contact-form input,
 .contact-form textarea {
   border: 1px solid #024e76;
@@ -349,6 +388,14 @@ footer a {
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: rgba(255, 255, 255, 1);
+  outline: none;
 }
 
 .contact-form button {
@@ -359,6 +406,12 @@ footer a {
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
+  border-radius: 10px;
+}
+
+.contact-form button:hover {
+  color: #fce138;
+  background: #39a6b2;
 }
 /* REACH OUT STYLES END */
 
@@ -369,6 +422,7 @@ footer a {
   header {
     padding-bottom: 0;
     justify-content: center;
+    position: relative;
   }
 
   header h1 {
@@ -409,8 +463,13 @@ footer a {
     flex: 0 70%;
   }
 
+  .contact-info {
+    margin: 0 10px 0 10px;
+  }
+
   .contact-info iframe {
     flex: 1 100%;
+    margin-top: 30px;
   }
 }
 
@@ -465,6 +524,7 @@ footer a {
 
   .contact-info {
     text-align: center;
+    margin-top: 30px;
   }
 
   .contact-info > * {
