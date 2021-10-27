@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #fce138;
+  --secondary-color: #024e76;
+  --tertiary-color: #39a6b2;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -7,7 +13,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #39a6b2;
+  color: var(--tertiary-color);
 }
 
 /* UTILITY STYLES */
@@ -17,7 +23,7 @@ section {
 
 .section-title {
   font-size: 48px;
-  color: #024e76;
+  color: var(--secondary-color);
   border-bottom: 3px solid;
   padding-bottom: 20px;
   text-align: center;
@@ -30,17 +36,17 @@ section {
 }
 
 .primary-border {
-  border-color: #fce138;
+  border-color: var(--primary-color);
 }
 
 .secondary-border {
-  border-color: #39a6b2;
+  border-color: var(--tertiary-color);
 }
 
 /* HEADER STYLES */
 header {
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-color: var(--tertiary-color);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -52,18 +58,19 @@ header {
   background-position: center;
   background-attachment: fixed;
   background-position: 80%;
+  z-index: 10;
 }
 
 header h1 {
   font-weight: bold;
   font-size: 36px;
-  color: #fce138;
+  color: var(--primary-color);
   margin: 0;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 header nav {
@@ -87,7 +94,7 @@ header nav ul li a {
 
 header nav ul li a:hover {
   background: #fce138;
-  color: #024e76;
+  color: var(--secondary-color);
   border-radius: 15px;
   text-shadow: none;
 }
@@ -95,7 +102,7 @@ header nav ul li a:hover {
 header h1 {
   font-weight: bold;
   font-size: 36px;
-  color: #fce138;
+  color: var(--primary-color);
   margin: 0;
   display: inline;
 }
@@ -112,7 +119,7 @@ footer {
 }
 
 footer h2 {
-  color: #024e76;
+  color: var(--secondary-color);
   font-size: 30px;
   margin: 0;
 }
@@ -123,7 +130,7 @@ footer div {
 }
 
 footer a {
-  color: #024e76;
+  color: var(--secondary-color);
 }
 /* FOOTER STYLES END */
 
@@ -151,13 +158,13 @@ footer a {
 .hero-cta h2 {
   font-style: italic;
   font-style: 55px;
-  color: #fce138;
+  color: var(--primary-color);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Hero Form */
 .hero-form {
-  color: #024e76;
+  color: var(--secondary-color);
   background-color: rgba(252, 225, 56, 0.8);
   padding: 20px;
   border: solid 3px #024e76;
@@ -179,7 +186,7 @@ footer a {
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px;
   border-radius: 10px;
@@ -196,8 +203,8 @@ footer a {
 }
 
 .hero-form button {
-  background-color: #024e76;
-  color: #fce138;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -205,7 +212,80 @@ footer a {
 }
 
 .hero-form button:hover {
-  background-color: #39a6b2;
+  background-color: var(--tertiary-color);
+}
+
+.checkbox-wrapper input,
+.radio-wrapper input {
+  opacity: 0;
+}
+
+.checkbox-wrapper label,
+.radio-wrapper label {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+}
+
+/* This is the css to make the box over the default radio and checkbox */
+.checkbox-wrapper label::before,
+.radio-wrapper label::before {
+  content: '';
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #024e76;
+  position: absolute;
+  top: -4px;
+  left: -30px;
+}
+
+.radio-wrapper label::before {
+  border-radius: 50%;
+}
+
+.radio-wrapper label::after {
+  content: '';
+  height: 20px;
+  width: 20px;
+  background: #024e76;
+  position: absolute;
+  top: -3px;
+  left: -29px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #39a6b2, #024e76);
+}
+
+/* This is the CSS to make the checkmark */
+.checkbox-wrapper label::after {
+  content: '';
+  height: 7px;
+  width: 14px;
+  border-left: 2px solid #024e76;
+  border-bottom: 2px solid #024e76;
+  position: absolute;
+  top: -1px;
+  left: -26px;
+  transform: rotate(-58deg);
+}
+
+/* When the input field are checked make the text associated to it bold */
+.checkbox-wrapper input:checked + label,
+.radio-wrapper input:checked + label {
+  font-weight: bold;
+}
+
+/* Uncheck the radio and checkbox inputs when not selected */
+.checkbox-wrapper input + label::after,
+.radio-wrapper input + label::after {
+  content: none;
+}
+
+/* If the radio buttons are in their default state, they'll have no ::after psuedo content. When an input becomes :checked the content and all the other styles defined will take effect */
+.checkbox-wrapper input:checked + label::after,
+.radio-wrapper input:checked + label::after {
+  content: '';
 }
 /* HERO STYLES END */
 
@@ -213,7 +293,7 @@ footer a {
 .intro p {
   text-align: center;
   line-height: 1.7;
-  color: #39a6b2;
+  color: var(--tertiary-color);
   width: 80%;
   font-size: 20px;
   margin: 0 auto;
@@ -241,7 +321,7 @@ footer a {
 }
 
 .step h3 {
-  color: #024e76;
+  color: var(--secondary-color);
   font-size: 46px;
   flex: 1 30%;
 }
@@ -269,11 +349,11 @@ footer a {
 .step-text h4 {
   font-size: 26px;
   line-height: 1.5;
-  color: #024e76;
+  color: var(--secondary-color);
 }
 
 .step-text p {
-  color: #39a6b2;
+  color: var(--tertiary-color);
   font-size: 18px;
 }
 /* WHAT YOU DO STYLES END */
@@ -290,7 +370,7 @@ footer a {
 .trainer {
   margin: 20px;
   background: #024e76;
-  color: #fce138;
+  color: var(--primary-color);
   flex: 1;
 }
 
@@ -332,7 +412,7 @@ footer a {
 }
 
 .contact h2 {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 .contact-info {
@@ -358,7 +438,7 @@ footer a {
 }
 
 .contact-info h3 {
-  color: #fce138;
+  color: var(--primary-color);
   font-size: 32px;
 }
 
@@ -371,7 +451,7 @@ footer a {
 }
 
 .contact a {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 .contact-form {
@@ -384,7 +464,7 @@ footer a {
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
@@ -402,7 +482,7 @@ footer a {
   width: 100%;
   border: none;
   background: #fce138;
-  color: #024e76;
+  color: var(--secondary-color);
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
@@ -410,7 +490,7 @@ footer a {
 }
 
 .contact-form button:hover {
-  color: #fce138;
+  color: var(--primary-color);
   background: #39a6b2;
 }
 /* REACH OUT STYLES END */
